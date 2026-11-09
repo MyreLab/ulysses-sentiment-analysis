@@ -18,6 +18,8 @@ Methods:
 - Scored each sentence once with VADER and averaged the scores per character, keeping the number of sentences behind each average
 - Tested whether the scores just reflect chapter tone: scored all 18 chapters, then compared each character's score with the average tone of the chapters they appear in. If chapter tone drove the results, the two would match
 
+<img src="character-sentiment-chart.png" width="60%">
+
 Findings:
 - Chapter tone explains only part of the character ranking. Characters in sunnier chapters tend to score higher, but chapter tone accounts for only about 12% of the variation in scores, and the characters at the top and bottom score very differently from the chapters they appear in. Gerty MacDowell scores highest (0.26), far above the 0.08 predicted from her chapters, though part of that may still be style: her half of chapter 13 is written like a romance novel, while Bloom's half isn't. Paddy Dignam scores lowest (−0.06), below the tone of every chapter, because his death comes up throughout the novel
 - In the chart below, each dot is a character. If chapter tone explained the scores, the dots would fall along the dashed line; instead they spread out vertically, with Gerty far above it and Dignam far below
