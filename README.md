@@ -10,6 +10,8 @@
 
 <p>In this project, I used sentiment analysis to explore which of the novel's 30 main characters are written about in warmer or darker language. Each character gets a score from −1 to 1: closer to 1 means the language around them is mostly upbeat, closer to −1 mostly grim. <i>Ulysses</i> makes this a fun experiment: it has a huge cast of characters who go by many different names, and its writing style changes from chapter to chapter. Does the model pick up on the characters themselves, or on Joyce's shifting styles?</p>
 
+<img src="character-sentiment-chart.png" width="60%">
+
 Methods:
 - Scraped the HTML edition of the novel with `requests` and extracted the text with `BeautifulSoup`
 - Tokenized, lowercased, and removed stop words, comparing NLTK's and scikit-learn's stop word lists in word-frequency plots
@@ -17,8 +19,6 @@ Methods:
 - Matched names as whole words with a single regex, longest variation first, so "Mr Dedalus" (Simon) isn't credited to "Dedalus" (Stephen)
 - Scored each sentence once with VADER and averaged the scores per character, keeping the number of sentences behind each average
 - Tested whether the scores just reflect chapter tone: scored all 18 chapters, then compared each character's score with the average tone of the chapters they appear in. If chapter tone drove the results, the two would match
-
-<img src="character-sentiment-chart.png" width="60%">
 
 Findings:
 - Chapter tone explains only part of the character ranking. Characters in sunnier chapters tend to score higher, but chapter tone accounts for only about 12% of the variation in scores, and the characters at the top and bottom score very differently from the chapters they appear in. Gerty MacDowell scores highest (0.26), far above the 0.08 predicted from her chapters, though part of that may still be style: her half of chapter 13 is written like a romance novel, while Bloom's half isn't. Paddy Dignam scores lowest (−0.06), below the tone of every chapter, because his death comes up throughout the novel
